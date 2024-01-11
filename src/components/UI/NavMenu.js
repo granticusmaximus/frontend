@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import * as ROUTES from '../constants/routes';
-import { Dna } from 'react-loader-spinner';
 
 const NavMenu = (props) => {
 	return (
@@ -12,7 +11,6 @@ const NavMenu = (props) => {
 				<Navbar
 					key={expand}
 					fixed='top'
-					expand='lg'
 					expand={expand}
 					className='mb-3'
 					style={{
@@ -39,27 +37,27 @@ const NavMenu = (props) => {
 							</Offcanvas.Title>
 						</Offcanvas.Header>
 						<Offcanvas.Body>
-							<Nav className='justify-content-end flex-grow-1 pe-3'>
+							<Nav style={{ color: 'grey' }}>
 								<Nav.Link
-									style={{ color: 'white' }}
+									style={{ color: 'black' }}
 									href={ROUTES.HOME}
 								>
 									Home
 								</Nav.Link>
 								<Nav.Link
-									style={{ color: 'white' }}
+									style={{ color: 'black' }}
 									href={ROUTES.ABOUT}
 								>
 									About
 								</Nav.Link>
 								<Nav.Link
-									style={{ color: 'white' }}
+									style={{ color: 'black' }}
 									href={ROUTES.CONTACT}
 								>
 									Contact
 								</Nav.Link>
 								<Nav.Link
-									style={{ color: 'white' }}
+									style={{ color: 'black' }}
 									href={ROUTES.SHOP}
 								>
 									Shop

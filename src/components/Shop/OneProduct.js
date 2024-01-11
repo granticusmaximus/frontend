@@ -4,8 +4,7 @@ import sanityClient from '../../utils/client.js';
 import BlockContent from '@sanity/block-content-to-react';
 import imageUrlBuilder from '@sanity/image-url';
 import { Helmet } from 'react-helmet';
-import { useNavigate } from 'react-router-dom';
-import { Row, Col, Card, Container } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -13,14 +12,8 @@ function urlFor(source) {
 }
 
 export default function OnePost() {
-	let navigate = useNavigate();
 	const [productData, setProductData] = useState(null);
 	const { slug } = useParams();
-
-	const goBackToList = (e) => {
-		e.preventDefault();
-		navigate = '/shop';
-	};
 
 	useEffect(() => {
 		sanityClient
