@@ -1,6 +1,23 @@
 import { Row, Card, Container } from 'react-bootstrap';
+import ReactLoading from 'react-loading';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+	const [isFetching, setIsFetching] = useState(true);
+	useEffect(() => {
+		setTimeout(function () {
+			console.log('Delayed for 5 second.');
+			setIsFetching(false);
+		}, 5000);
+	}, [isFetching]);
+	if (isFetching) {
+		<ReactLoading
+			type={'bars'}
+			color={'#03fc4e'}
+			height={100}
+			width={100}
+		/>;
+	}
 	return (
 		<>
 			<br />

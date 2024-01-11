@@ -1,22 +1,22 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import ReactLoading from 'react-loading';
 import '../../assets/css/contact.css';
 
 const Contact = () => {
 	const form = useRef();
-
+	const [isFetching, setIsFetching] = useState(true);
 	let navigate = useNavigate();
-
 	const sendEmail = (e) => {
 		e.preventDefault();
 
 		emailjs
 			.sendForm(
-				'service_libv1nq',
-				'template_qbxfxzc',
+				'service_ct07nbo',
+				'template_5yt34fh',
 				form.current,
 				'QUnmkZs8gBchyu6ck'
 			)
@@ -30,6 +30,20 @@ const Contact = () => {
 				}
 			);
 	};
+	useEffect(() => {
+		setTimeout(function () {
+			console.log('Delayed for 5 second.');
+			setIsFetching(false);
+		}, 5000);
+	}, [isFetching]);
+	if (isFetching) {
+		<ReactLoading
+			type={'bars'}
+			color={'#03fc4e'}
+			height={100}
+			width={100}
+		/>;
+	}
 	return (
 		<>
 			<Helmet>
