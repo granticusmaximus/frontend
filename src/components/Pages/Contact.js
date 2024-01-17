@@ -106,18 +106,6 @@ const Contact = () => {
 									/>
 								</div>
 
-								{/* <!-- subject --> */}
-								<div class='form-group'>
-									<label for='subject'>Phone Number</label>
-									<input
-										type='phone'
-										name='phoneNumber'
-										class='form-control'
-										id='subject'
-										placeholder='Enter a contact number'
-									/>
-								</div>
-
 								<div class='form-group'>
 									<label for='email_body'>Message</label>
 									<textarea
