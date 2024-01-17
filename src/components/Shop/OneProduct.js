@@ -4,7 +4,7 @@ import sanityClient from '../../utils/client.js';
 import BlockContent from '@sanity/block-content-to-react';
 import imageUrlBuilder from '@sanity/image-url';
 import { Helmet } from 'react-helmet';
-import { Row, Col, Container } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -81,14 +81,17 @@ export default function OnePost() {
 			<br />
 			<Container>
 				<div className='relative'>
+					<hr />
 					<div className='absolute flex items-center justify-center'>
 						{/* Title Section */}
 						<div className='product-name'>
-							<center></center>
+							<center>
+								<h2>{productData.name}</h2>
+							</center>
 						</div>
 					</div>
 					<Row>
-						<Col>
+						<Col md={4}>
 							<img
 								className='w-full object-cover rounded-t'
 								src={urlFor(productData.image).url()}
@@ -96,23 +99,25 @@ export default function OnePost() {
 								style={{ height: '400px' }}
 							/>
 						</Col>
-						<Col>
+						<Col md={4}>
 							<Row>
-								<h2>{productData.name}</h2>
 								<p>
-									Price:
+									<h3>Price:</h3>
 									<div>
-										<h4 className='cursive'>{productData.price}</h4>
+										<p>{productData.price}</p>
 									</div>
 								</p>{' '}
-								Description:
-								<div>
-									<h4 className='cursive'>{productData.description}</h4>
-								</div>
+								<p>
+									<h3>Description:</h3>
+									<div>
+										<p>{productData.description}</p>
+									</div>
+								</p>
 							</Row>
 						</Col>
 					</Row>
 				</div>
+				<hr />
 				<center>
 					<a
 						href='/shop'

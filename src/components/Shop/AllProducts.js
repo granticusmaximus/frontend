@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import sanityClient from '../../utils/client.js';
 import { Helmet } from 'react-helmet';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 export default function AllProducts() {
 	const [allProductsData, setAllProducts] = useState([]);
@@ -53,56 +54,55 @@ export default function AllProducts() {
 					content='Designing Yesterday Shop'
 				/>
 			</Helmet>
-
-			<div className='shopHeader'>
-				<div className='container'>
-					<h1
-						className='flex justify-center cursive'
-						style={{
-							fontFamily: 'Brush Script MT',
-						}}
-					>
-						Designing Yesterday Shop
-					</h1>
-					<h3
-						className='shopByLine flex justify-center'
-						style={{
-							fontFamily: 'Brush Script MT',
-						}}
-					>
-						Welcome to my shop!
-					</h3>
-					<div className='grid-container'>
-						{allProductsData.length > 0 ? ( // Check if data is available
-							allProductsData.map((post, index) => (
-								<div>
-									<Link
-										to={'/' + post.slug.current}
-										key={post.slug.current}
-									>
-										<h2>{post.name}</h2>
-										<h3>{post.price}</h3>
-										<div key={index}>
-											<img
-												src={post.image.asset.url}
-												alt=''
-												style={{
-													width: '50%',
-													height: '50%',
-												}}
-											/>
-										</div>
-									</Link>
-									<br />
-									<br />
-								</div>
-							))
-						) : (
-							<p>Loading...</p> // Display a loading message while data is being fetched
-						)}
+			<Container>
+				<div className='shopHeader'>
+					<div className='container'>
+						<h1
+							className='flex justify-center cursive'
+							style={{
+								fontFamily: 'Brush Script MT',
+							}}
+						>
+							Designing Yesterday Shop
+						</h1>
+						<h3
+							className='shopByLine flex justify-center'
+							style={{
+								fontFamily: 'Brush Script MT',
+							}}
+						>
+							Welcome to my shop!
+						</h3>
+						<div className='grid-container'>
+							{allProductsData.length > 0 ? ( // Check if data is available
+								allProductsData.map((item, index) => (
+									<div>
+										<Link
+											to={'/' + item.slug.current}
+											key={item.slug.current}
+										>
+											<Card className='mb-4'>
+												<Card.Img
+													variant='top'
+													src={item.image.asset.url}
+												/>
+												<Card.Body>
+													<Card.Title>{item.name}</Card.Title>
+													<Card.Text>Price: {item.price}</Card.Text>
+												</Card.Body>
+											</Card>
+										</Link>
+										<br />
+										<br />
+									</div>
+								))
+							) : (
+								<p>Loading...</p> // Display a loading message while data is being fetched
+							)}
+						</div>
 					</div>
 				</div>
-			</div>
+			</Container>
 		</>
 	);
 }

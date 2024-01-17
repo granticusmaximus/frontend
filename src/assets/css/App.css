@@ -56,3 +56,22 @@ code {
   display: grid;
   grid-template-columns: auto auto auto auto;
 }
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Ensure the container takes at least the full viewport height */
+}
+
+/* CSS for the main content area */
+.main-content {
+  flex: 1;
+  /* Allow the main content area to grow and take up available space */
+}
+
+/* CSS for the sticky footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
