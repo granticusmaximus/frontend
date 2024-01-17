@@ -4,7 +4,7 @@ import sanityClient from '../../utils/client.js';
 import BlockContent from '@sanity/block-content-to-react';
 import imageUrlBuilder from '@sanity/image-url';
 import { Helmet } from 'react-helmet';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {

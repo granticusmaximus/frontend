@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import sanityClient from '../../utils/client.js';
 import { Helmet } from 'react-helmet';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Card } from 'react-bootstrap';
 
 export default function AllProducts() {
 	const [allProductsData, setAllProducts] = useState([]);
