@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ReactLoading from 'react-loading';
 import '../../assets/css/contact.css';
+import * as ROUTES from '../constants/routes';
 
 const Contact = () => {
 	const form = useRef();
@@ -18,11 +19,11 @@ const Contact = () => {
 				'service_ct07nbo',
 				'template_5yt34fh',
 				form.current,
-				'QUnmkZs8gBchyu6ck'
+				'jiwXLoEH2nHnymr2F'
 			)
 			.then(
 				(result) => {
-					navigate('/contact-form-thank-you');
+					navigate(ROUTES.C_THANK_YOU);
 					console.log(result.text);
 				},
 				(error) => {
@@ -32,9 +33,9 @@ const Contact = () => {
 	};
 	useEffect(() => {
 		setTimeout(function () {
-			console.log('Delayed for 5 second.');
+			console.log('Delayed for 2 second.');
 			setIsFetching(false);
-		}, 5000);
+		}, 2000);
 	}, [isFetching]);
 	if (isFetching) {
 		<ReactLoading
