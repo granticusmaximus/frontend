@@ -114,10 +114,14 @@ export default function OnePost() {
 									</div>
 								</p>
 							</Row>
-							<hr/>
-							<a href='#' className='btn btn-warning'>Add to Cart</a>
+							<hr />
+							<a
+								href='/cart'
+								className='btn btn-warning'
+							>
+								Add to Cart
+							</a>
 						</Col>
-
 					</Row>
 				</div>
 				<hr />
